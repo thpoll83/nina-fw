@@ -21,7 +21,7 @@
   #define VSPI_MISO       23
   #define VSPI_SCLK       18
   #define VSPI_SS         5
-  #define VSPI_READY      25
+  #define VSPI_READY      33
 
   #define BT_MODE_SENSE   5
   #define SWD_SAMD        15
