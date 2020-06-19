@@ -1,4 +1,4 @@
-# Adafruit fork of the Arduino NINA-W102 firmware
+# NINA-W102 firmware fork for ESP32-CAM
 
 [![Build Status](https://travis-ci.com/adafruit/nina-fw.svg?branch=master)](https://travis-ci.com/adafruit/nina-fw)
 
