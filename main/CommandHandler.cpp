@@ -28,7 +28,7 @@
 
 #include "Arduino.h"
 
-const char FIRMWARE_VERSION[6] = "1.6.1";
+const char FIRMWARE_VERSION[10] = "1.7.0-cam";
 
 // Optional, user-defined X.509 certificate
 char CERT_BUF[1300];
@@ -757,7 +757,7 @@ int getFwVersion(const uint8_t command[], uint8_t response[])
 
   memcpy(&response[4], FIRMWARE_VERSION, sizeof(FIRMWARE_VERSION));
 
-  return 11;
+  return 5 + sizeof(FIRMWARE_VERSION);
 }
 
 int sendUDPdata(const uint8_t command[], uint8_t response[])

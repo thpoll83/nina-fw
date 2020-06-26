@@ -1,3 +1,7 @@
+Forked ESP32-cam from pinning branch - 2020.06.26
+
+* Changed pin number to fit ESP32-CAM (using ESP-IDF 4.x)
+
 Adafruit's Arduino NINA-W102 firmware 1.6.0 - 2019.12.28
 
 * Updated to build with ESP-IDF 3.3.1

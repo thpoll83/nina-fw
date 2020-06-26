@@ -33,7 +33,7 @@ load-passthrough:
 	cp passthrough.UF2  $(BOOT_VOLUME)
 
 load-nina:
-	esptool.py --port $(M4_PORT) --before no_reset --baud $(UPLOAD_BAUD) write_flash 0 NINA_W102-1.6.1.bin
+	esptool.py --port $(M4_PORT) --before no_reset --baud $(UPLOAD_BAUD) write_flash 0 NINA_W102-1.7.0-cam.bin
 
 load-circuitpython:
 	cp $(CIRCUITPYTHON_UF2) $(BOOT_VOLUME)
