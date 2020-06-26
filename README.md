@@ -12,23 +12,23 @@ This firmware uses [Espressif's IDF](https://github.com/espressif/esp-idf)
                 +---------|-----+                         +-------------------+
                 |    ESP_ |     |                    ~RST | o                 |
                 |    RST--+     |            +------ 3V3  | o     Feather     |
-             5V | o    ___    o | 3V3 -------+       AREF | o     Wing        |
-            GND | o   / _ \   o | io16 -->10(RDY) +- GND  | o                 |
-  MISO <-- io12 | o  ( (_) )  o | io0             |  A0   | o               o | VBAT
-  MOSI <-- io13 | o   \___/   o | GND ------------+  A1   | o               o | EN
- 9(CS) <-- io15 | o    |||    o | VCC                A2   | o               o | VUSB
+             5V | o           o | 3V3 -------+       AREF | o     Wing        |
+            GND | o    ___    o | io16-->10(RDY)  +- GND  | o                 |
+  MISO <-- io12 | o   / _ \   o | io0             |  A0   | o               o | VBAT
+  MOSI <-- io13 | o  ( (_) )  o | GND ------------+  A1   | o               o | EN
+ 9(CS) <-- io15 | o   \___/   o | VCC                A2   | o               o | VUSB
    SCK <-- io14 | o    |||    o | U0RX               A3   | o               o | 13
-                | o    |||    o | U0TX               A4   | o               o | 12
-                | o [=======] o | GND                A5   | o               o | 11
-                |               |           io14 <-- SCK  | o               o | 10(RDY) --> io16
-                |               |           io13 <-- MOSI | o               o | 9(CS)
+            io2 | o    |||    o | U0TX               A4   | o               o | 12
+            io4 | o    |||    o | GND                A5   | o               o | 11
+                |   [=======]   |           io14 <-- SCK  | o               o | 10(RDY) --> io16
+                |               |           io13 <-- MOSI | o               o | 9(CS) --> io15
                 |   ESP32-CAM   |           io12 <-- MISO | o               o | 6
                 +---------------+                    RX   | o               o | 5 --> ESP_RST
                                                      TX   | o               o | SCL
                                                      FREE | o               o | SDA
                                                           +-------------------+
 ```
-Please note: A wire needs to be soldered to the ESP32-CAM's reset button (the one close to the yellow capacitor) which can be connected to pin 5 on the feather board. 
+Please note: A wire needs to be soldered to the ESP32-CAM's reset button (on the backside, the one close to the yellow capacitor) which can be connected to pin 5 on the feather board. 
 
 ## Contributing to nina-fw
 
