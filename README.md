@@ -1,11 +1,34 @@
 # NINA-W102 firmware fork for ESP32-CAM
 
-[![Build Status](https://travis-ci.com/adafruit/nina-fw.svg?branch=master)](https://travis-ci.com/adafruit/nina-fw)
-
-This is the Adafruit fork of the Arduino NINA-W102 firmware. The original
-repository is located at https://github.com/arduino/nina-fw
+This is the NINA-W102 fork for ESP-CAM. The ESP32-CAM board will be used as co-processor for Adafruit feather compatible MCUs (like Adafruit AirLift). Currently only supports WIFI, camera work has not yet started.
 
 This firmware uses [Espressif's IDF](https://github.com/espressif/esp-idf)
+
+## Wiring Diagram
+
+```
+                          +-- > 5
+                          |
+                +---------|-----+                         +-------------------+
+                |    ESP_ |     |                    ~RST | o                 |
+                |    RST--+     |            +------ 3V3  | o     Feather     |
+             5V | o    ___    o | 3V3 -------+       AREF | o     Wing        |
+            GND | o   / _ \   o | io16 -->10(RDY) +- GND  | o                 |
+  MISO <-- io12 | o  ( (_) )  o | io0             |  A0   | o               o | VBAT
+  MOSI <-- io13 | o   \___/   o | GND ------------+  A1   | o               o | EN
+ 9(CS) <-- io15 | o    |||    o | VCC                A2   | o               o | VUSB
+   SCK <-- io14 | o    |||    o | U0RX               A3   | o               o | 13
+                | o    |||    o | U0TX               A4   | o               o | 12
+                | o [=======] o | GND                A5   | o               o | 11
+                |               |           io14 <-- SCK  | o               o | 10(RDY) --> io16
+                |               |           io13 <-- MOSI | o               o | 9(CS)
+                |   ESP32-CAM   |           io12 <-- MISO | o               o | 6
+                +---------------+                    RX   | o               o | 5 --> ESP_RST
+                                                     TX   | o               o | SCL
+                                                     FREE | o               o | SDA
+                                                          +-------------------+
+```
+Please note: A wire needs to be soldered to the ESP32-CAM's reset button (the one close to the yellow capacitor) which can be connected to pin 5 on the feather board. 
 
 ## Contributing to nina-fw
 
@@ -32,9 +55,9 @@ original Arduino firmware repository.
 1. Clone **v3.3.1** of the IDF: `git clone --branch v3.3.1 --recursive https://github.com/espressif/esp-idf.git`
 1. Set the `IDF_PATH` environment variable: `export IDF_PATH=<path/to/idf>`
 1. Run `make firmware` to build the firmware (in the directory of this read me)
-1. You should have a file named `NINA_W102-x.x.x.bin` in the top directory
+1. You should have a file named `NINA_W102-x.x.x-cam.bin` in the top directory
 1. Use appropriate tools (esptool.py, appropriate pass-through firmware etc)
-   to load this binary file onto your board.
+   to load this binary file onto your board. Example: esptool.py --port /dev/ttyS6 --before no_reset --baud 115200 write_flash 0 NINA_W102-1.7.0-cam.bin
     a. If you do not know how to do this, [we have an excellent guide on the Adafruit Learning System for upgrading your ESP32's firmware](https://learn.adafruit.com/upgrading-esp32-firmware)
 
 
