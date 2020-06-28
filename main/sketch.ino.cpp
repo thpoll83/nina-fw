@@ -33,7 +33,6 @@ extern "C" {
 #include "CommandHandler.h"
 #include "pinning.h"
 
-#define SPI_BUFFER_LEN SPI_MAX_DMA_LEN
 
 int debug = 0;
 

@@ -25,6 +25,7 @@
 #include "esp_wpa2.h"
 
 #include "CommandHandler.h"
+#include "CameraFunctions.h"
 
 #include "Arduino.h"
 
@@ -1140,7 +1141,7 @@ const CommandHandlerType commandHandlers[] = {
   setClientCert, setCertKey, NULL, NULL, sendDataTcp, getDataBufTcp, insertDataBuf, NULL, NULL, NULL, wpa2EntSetIdentity, wpa2EntSetUsername, wpa2EntSetPassword, wpa2EntSetCACert, wpa2EntSetCertKey, wpa2EntEnable,
 
   // 0x50 -> 0x5f
-  setPinMode, setDigitalWrite, setAnalogWrite, setDigitalRead, setAnalogRead,
+  setPinMode, setDigitalWrite, setAnalogWrite, setDigitalRead, setAnalogRead, initCamera, getCameraFB
 };
 
 #define NUM_COMMAND_HANDLERS (sizeof(commandHandlers) / sizeof(commandHandlers[0]))

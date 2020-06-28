@@ -26,7 +26,7 @@ for i in range(0, len(appData)):
 	outputData[0x30000 + i] = appData[i]
 
 for i in range(0, len(certsData)):
-        outputData[0x10000 + i] = certsData[i]
+    outputData[0x10000 + i] = certsData[i]
 
 # zero terminate the pem file
 outputData[0x10000 + len(certsData)] = 0

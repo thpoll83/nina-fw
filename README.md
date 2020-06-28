@@ -28,12 +28,13 @@ instructions. These may differ from the instructions included in the
 original Arduino firmware repository.
 
 1. [Download the ESP32 toolchain](https://docs.espressif.com/projects/esp-idf/en/v3.3.1/get-started/index.html#setup-toolchain)
-1. Extract it and add it to your `PATH`: `export PATH=$PATH:<path/to/toolchain>/bin`
-1. Clone **v3.3.1** of the IDF: `git clone --branch v3.3.1 --recursive https://github.com/espressif/esp-idf.git`
-1. Set the `IDF_PATH` environment variable: `export IDF_PATH=<path/to/idf>`
-1. Run `make firmware` to build the firmware (in the directory of this read me)
-1. You should have a file named `NINA_W102-x.x.x.bin` in the top directory
-1. Use appropriate tools (esptool.py, appropriate pass-through firmware etc)
+2. Extract it and add it to your `PATH`: `export PATH=$PATH:<path/to/toolchain>/bin`
+3. Clone **v3.3.1** of the IDF: `git clone --branch v3.3.1 --recursive https://github.com/espressif/esp-idf.git`
+4. Set the `IDF_PATH` environment variable: `export IDF_PATH=<path/to/idf>`
+5. Clone https://github.com/espressif/esp32-camera.git to $IDF_PATH/components/esp32-camera 
+6. Run `make firmware` to build the firmware (in the directory of this read me)
+7. You should have a file named `NINA_W102-x.x.x.bin` in the top directory
+8. Use appropriate tools (esptool.py, appropriate pass-through firmware etc)
    to load this binary file onto your board.
     a. If you do not know how to do this, [we have an excellent guide on the Adafruit Learning System for upgrading your ESP32's firmware](https://learn.adafruit.com/upgrading-esp32-firmware)
 
